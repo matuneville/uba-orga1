@@ -1,2 +1,3 @@
-# uba-orga1
-Repositorio de Organizacion del Computador 1
+# Organización del Computador I
+2023 - 1° cuatrimestre
+Repo con de Orga1
