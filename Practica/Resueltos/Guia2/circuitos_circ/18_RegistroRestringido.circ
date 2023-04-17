@@ -62,12 +62,6 @@
     <a name="circuit" val="registro_restringido"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
-    <comp lib="0" loc="(1000,370)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="south"/>
-      <a name="label" val="o0"/>
-      <a name="output" val="true"/>
-    </comp>
     <comp lib="0" loc="(310,280)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="south"/>
@@ -126,43 +120,48 @@
       <a name="incoming" val="4"/>
       <a name="spacing" val="2"/>
     </comp>
-    <comp lib="0" loc="(900,400)" name="Splitter">
+    <comp lib="0" loc="(870,410)" name="Splitter">
       <a name="appear" val="right"/>
       <a name="facing" val="north"/>
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
       <a name="spacing" val="3"/>
     </comp>
-    <comp lib="0" loc="(910,370)" name="Pin">
+    <comp lib="0" loc="(880,380)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="south"/>
       <a name="label" val="o3"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="0" loc="(940,370)" name="Pin">
+    <comp lib="0" loc="(910,380)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="south"/>
       <a name="label" val="o2"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="0" loc="(970,370)" name="Pin">
+    <comp lib="0" loc="(940,380)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="south"/>
       <a name="label" val="o1"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="12" loc="(680,340)" name="registro_simple"/>
-    <comp lib="2" loc="(820,400)" name="Multiplexer">
+    <comp lib="0" loc="(970,380)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="south"/>
+      <a name="label" val="o0"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="1" loc="(810,410)" name="Controlled Buffer">
       <a name="width" val="4"/>
     </comp>
+    <comp lib="12" loc="(680,340)" name="registro_simple"/>
     <comp lib="4" loc="(550,480)" name="D Flip-Flop">
       <a name="appearance" val="logisim_evolution"/>
     </comp>
-    <comp lib="8" loc="(664,177)" name="Text">
+    <comp lib="8" loc="(660,175)" name="Text">
       <a name="font" val="SansSerif bold 22"/>
       <a name="text" val="Registro de Salida Restringida"/>
     </comp>
-    <wire from="(1000,370)" to="(1000,380)"/>
     <wire from="(410,300)" to="(440,300)"/>
     <wire from="(410,440)" to="(410,530)"/>
     <wire from="(410,440)" to="(460,440)"/>
@@ -173,19 +172,13 @@
     <wire from="(440,420)" to="(460,420)"/>
     <wire from="(480,490)" to="(480,580)"/>
     <wire from="(480,490)" to="(540,490)"/>
-    <wire from="(600,490)" to="(610,490)"/>
-    <wire from="(610,490)" to="(610,510)"/>
-    <wire from="(610,510)" to="(800,510)"/>
+    <wire from="(600,490)" to="(800,490)"/>
     <wire from="(700,410)" to="(790,410)"/>
-    <wire from="(730,360)" to="(730,390)"/>
-    <wire from="(730,360)" to="(860,360)"/>
-    <wire from="(730,390)" to="(790,390)"/>
-    <wire from="(800,420)" to="(800,510)"/>
-    <wire from="(820,400)" to="(860,400)"/>
-    <wire from="(860,360)" to="(860,400)"/>
-    <wire from="(860,400)" to="(900,400)"/>
-    <wire from="(910,370)" to="(910,380)"/>
-    <wire from="(940,370)" to="(940,380)"/>
-    <wire from="(970,370)" to="(970,380)"/>
+    <wire from="(800,420)" to="(800,490)"/>
+    <wire from="(810,410)" to="(870,410)"/>
+    <wire from="(880,380)" to="(880,390)"/>
+    <wire from="(910,380)" to="(910,390)"/>
+    <wire from="(940,380)" to="(940,390)"/>
+    <wire from="(970,380)" to="(970,390)"/>
   </circuit>
 </project>
