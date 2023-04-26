@@ -23,7 +23,7 @@ loop: ADD R0, R0
       JE end
       JMP loop
 
-end:
+ end: RET
 ```
 
 3. No altera otros registros que no sean R0 o R1
@@ -65,8 +65,9 @@ MinMax: CMP R2, [R0] ; check max
         JG end
         JMP MinMax
 
-   end: 
+   end: RET
 ```
 
 ## Ejercicio 3
 
+La palabra de la arquitectura ORGA1 es de 16 bits, por lo tanto para sumar dos numeros de 64 bits tendremos que hacerlo en 4 sumas.
