@@ -11,7 +11,7 @@ endwhile
 
 2. Código en Assembler ORGA1
 
-```x86asm
+```asm
 ; R0 = valor a shiftear
 ; R1 = posiciones a shiftear
 
@@ -46,7 +46,7 @@ endwhile
 
 Código en Assembler ORGA1
 
-```x86asm
+```asm
 ; R0 = posicion inicio vector
 ; R1 = size vector
   main: MOV R2, [R0] ; max
