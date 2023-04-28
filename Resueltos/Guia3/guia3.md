@@ -72,4 +72,22 @@ MinMax: CMP R2, [R0] ; check max
 
 ## Ejercicio 3
 
-La palabra de la arquitectura ORGA1 es de 16 bits, por lo tanto para sumar dos numeros de 64 bits tendremos que hacerlo en 4 sumas.
+La palabra de la arquitectura ORGA1 es de 16 bits, por lo tanto para sumar dos numeros de 64 bits tendremos que hacerlo en 4 sumas. El numero está a lo largo de la memoria, comenzando en la direccion de R0 y R1, y como está en Little Endian voy sumando de izquierda a derecha (en la suma a mano seria como sumar de derecha a izquierda). Lo mismo con el resultado, lo guardo a partir de la dirección de R2
+
+```asm
+; R0 = direc inicio numero 1, R1 = direc inicio numero 2
+; R2 = direc resultado
+main: MOV [R2], [R0]
+      ADD [R2], [R1]
+; ya sume los primeros 16 bits, sigo con las sgtes 3 direcciones de memoria
+      MOV [R2 + 0x0001], [R0 + 0x0001]
+      ADD [R2 + 0x0001], [R1 + 0x0001]
+
+      MOV [R2 + 0x0002], [R0 + 0x0002]
+      ADD [R2 + 0x0002], [R1 + 0x0002]
+      
+      MOV [R2 + 0x0003], [R0 + 0x0003]
+      ADD [R2 + 0x0003], [R1 + 0x0003]
+      
+      RET
+```
