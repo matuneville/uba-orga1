@@ -81,13 +81,23 @@ main: MOV [R2], [R0]
       ADD [R2], [R1]
 ; ya sume los primeros 16 bits, sigo con las sgtes 3 direcciones de memoria
       MOV [R2 + 0x0001], [R0 + 0x0001]
-      ADD [R2 + 0x0001], [R1 + 0x0001]
+      ADDC [R2 + 0x0001], [R1 + 0x0001]
 
       MOV [R2 + 0x0002], [R0 + 0x0002]
-      ADD [R2 + 0x0002], [R1 + 0x0002]
+      ADDC [R2 + 0x0002], [R1 + 0x0002]
       
       MOV [R2 + 0x0003], [R0 + 0x0003]
-      ADD [R2 + 0x0003], [R1 + 0x0003]
+      ADDC [R2 + 0x0003], [R1 + 0x0003]
       
       RET
+```
+
+## Ejercicio 4
+Asumo que el vector es de al menos 1 elemento
+
+```asm
+; R0 = largo vector, R1 = direc donde comienza el vector
+; R3 = direc resultado
+main: MOV [R3], [R1]
+      
 ```
