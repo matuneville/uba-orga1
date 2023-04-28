@@ -55,7 +55,7 @@ Código en Assembler ORGA1
         MOV R3, [R0] ; min
 
 MinMax: CMP R2, [R0] ; check max
-        JL cont ; si no es mayor, salto
+        JL cont1 ; si no es mayor, salto
         MOV R2, [R0]
 
  cont1: CMP R3, [R0]
