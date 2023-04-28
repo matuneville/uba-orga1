@@ -49,7 +49,9 @@ Código en Assembler ORGA1
 ```asm
 ; R0 = posicion inicio vector
 ; R1 = size vector
-  main: MOV R2, [R0] ; max
+  main: MOV R0, [BEGIN]
+        MOV R1, [SIZE]
+        MOV R2, [R0] ; max
         MOV R3, [R0] ; min
 
 MinMax: CMP R2, [R0] ; check max
@@ -61,8 +63,8 @@ MinMax: CMP R2, [R0] ; check max
         MOV R3, [R0]
 
  cont2: ADD R0, 0x0001
-        CMP R0,R1
-        JG end
+        SUB R1, 0x0001
+        JE end
         JMP MinMax
 
    end: RET
