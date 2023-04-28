@@ -56,11 +56,11 @@ Código en Assembler ORGA1
 
 MinMax: CMP R2, [R0] ; check max
         JL cont1 ; si no es mayor, salto
-        MOV R2, [R0]
+        MOV R2, [R0] ; asigno mayor
 
- cont1: CMP R3, [R0]
-        JG cont2
-        MOV R3, [R0]
+ cont1: CMP R3, [R0] ; check min
+        JG cont2 ; si no es menor, salto
+        MOV R3, [R0] ; asigno menor
 
  cont2: ADD R0, 0x0001
         SUB R1, 0x0001
