@@ -101,3 +101,58 @@ Asumo que el vector es de al menos 1 elemento
 main: MOV [R3], [R1]
       
 ```
+
+## Ejercicio 5
+
+En C
+```c
+      int x = 2;
+      int y = 32;
+      x = x + y ;
+```
+
+Traducido a Assembler
+```asm
+; R0 asigno x, R1 asigno y
+
+main: MOV R0, 0x0002
+      MOV R1, 0x0020
+
+      ADD R0, R1
+```
+
+Traducido a lenguaje de máquina  
+
+|   Assembler  | Cod. Op | Destino | Fuente |      Const 1      |   Const 2    |
+|--------------|---------|---------|--------|-------------------|--------------|
+|MOV R0, 0x0002|  0001   | 100000  | 000000 |0000 0000 0000 0010|      -       |
+|MOV R1, 0x0020|  0001   | 100001  | 000000 |0000 0000 0100 0000|      -       |
+|ADD R0, R1    |  0010   | 100000  | 100001 |         -         |      -       |
+
+
+## Ejercicio 6
+
+| Cod. Op | Destino | Fuente |      Const 1      |   Const 2    |   Assembler  |
+|---------|---------|--------|-------------------|--------------|--------------|
+|  0001   | 100000  | 000000 |0000 0000 1111 1111|      -       |MOV R0, 0x00FF|
+|  0001   | 100001  | 000000 |0001 0000 0000 0000|      -       |MOV R1, 0x1000|
+|  0010   | 100000  | 100001 |         -         |      -       |ADD R0, R1    |
+
+
+## Ejercicio 7
+
+Operaciones
+1. MOV R1, 20 (inmediato)
+2. MOV R1, [20] (directo)
+3. MOV R1, [[20]] (indirecto)
+4. MOV R1, R0 (registro)
+5. MOV R1, [R0] (indirecto registro)
+6. MOV R1, [R0 + 20] (indexado registro)
+
+Respuestas
+1. R1 = 0x0020
+2. R1 = 0x0040
+3. R1 = 0x0060
+4. R1 = 0x0030
+5. R1 = 0x0050
+6. R1 = 0x0070
