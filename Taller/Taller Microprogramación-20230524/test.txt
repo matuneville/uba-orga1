@@ -1,0 +1,4 @@
+     |00| JMP main
+main |02| SET R1 , 0x06
+     |04| SET R2 , 0x10
+     |06| MIX R1 , R2
