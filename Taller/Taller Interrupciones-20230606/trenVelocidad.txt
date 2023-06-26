@@ -1,0 +1,29 @@
+          |00| SET R0 , 0x02
+          |02| SET R1 , 0X20
+          |04| SET R3 , 0x0F
+          |06| SET R5 , 0x0C
+          |08| SET R6 , 0x0F
+          |0a| SET R7 , 0x00
+          |0c| STR [ 0xF1 ] , R0
+          |0e| SET R4 , rai
+          |10| STR [ 0x00 ] , R4
+          |12| STI
+     loop |14| STR [ 0xF0 ] , R3
+          |16| JMP loop
+      rai |18| CMP R3 , R5
+          |1a| JZ velMax
+          |1c| CMP R3 , R6
+          |1e| JZ velCurva
+   velMax |20| STR [ 0xF0 ] , R6
+          |22| SET R3 , 0x0F
+          |24| IRET
+ velCurva |26| STR [ 0xF0 ] , R5
+          |28| SET R3 , 0x0C
+          |2a| DEC R1
+          |2c| CMP R1 , R7
+          |2e| JZ incBocina
+          |30| IRET
+incBocina |32| INC R0
+          |34| STR [ 0xF1 ] , R0
+          |36| SET R1 , 0x20
+          |38| IRET

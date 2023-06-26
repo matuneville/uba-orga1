@@ -1,0 +1,9 @@
+
+
+Ejercicio 3
+
+Lo que hago es hacer un AND de a1, que es index, y 1, para ver si el primer bit de a1 es 1 o 0, pues porque si es 1 significa que a0 es un número impar, y si es 0 significa que es un número par. Entonces cuando hago "beqz a1, esParIndice" lo que estoy haciendo es ver si el resultado del AND es igual a 0; si es así, significa que el primer bit de a1 era 0, lo que indica que es par, entonces ese branch me hace un salto relativo a la etiqueta esParIndice, que le cargará un 0 a a1 (pues esta funcion devuelve 0 si el indice es impar). En el otro caso, hago un salto a la etiqueta esImparIndice, donde le cargo un 1 a a1 ya que debo devolver 1 si el indice es un numero impar. Luego termina la funcion
+
+Ejercicio 4
+
+Lo que hago es hacer un AND de a0 y 1 para ver si el primer bit de a0 es 1 o 0, pues porque si es 1 significa que a0 es un número impar, y si es 0 significa que es un número par. Entonces cuando hago "beqz a0, esPar" lo que estoy haciendo es ver si el resultado del AND es igual a 0; si es así, significa que el primer bit de a0 era 0, lo que indica que es par, entonces ese branch me hace un salto relativo a la etiqueta esPar, que le cargará un 1 a a0. Caso contrario, hago un jump relativo a la etiqueta esImpar, donde le cargo un 0 a a0 pues este es un número impar. Luego hago jump al final del código
