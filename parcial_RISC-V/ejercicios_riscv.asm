@@ -9,24 +9,86 @@ jal zero, main
 # int32_t restar_limpiando_impares(int32_t accum, int32_t a, int32_t b)
 
 call_restar_limpiando_impares: # a0:accum, a1:a, a2:b
-	ret	
+    li t0, 0x55555555
+    and a1, a1, t0 # me quedo con los bits en posiciones impares
+    
+    sub a2, a2, a1 # b = b - a 
+    
+    sub a0, a0, a2 # accum = accum - b = accum - b + a
+    
+    ret	
+	
+	
 # Extiende el signo de a de 16 a 32 bits y devuelve accum + ext_sign(a) + b 
 # int32_t sumar_extender(int32_t accum, int32_t a, int32_t b)
 
-
 call_sumar_extender: # a0:accum, a1:a, a2:b
-	ret	
+
+    li t0, 0x8000
+    li t1, 0xFFFF0000
+    li t2, 0x0000FFFF
+   
+    and a1, a1, t0 # me quedo con el signo de a
+   
+    bne a1, x0, extNegativo
+    j extPositivo
+   
+    extNegativo:
+    or a1, a1, t1 # extiendo con 1s
+    j continue
+   
+    extPositivo:
+    and a1, a1, t2  # extiendo con 0s
+    j continue
+   
+    continue:
+    add a0, a0, a2
+    add a0, a0, a1
+       
+    ret
+	
+	
 # Devuelve 1 si index es impar, 0 en caso contario
 # int32_t posicion_impar(int32_t a, int32_t index, int32_t length)
 
 call_posicion_impar: # a0 a, a1 index, a2 length
-	ret
+    andi a1, a1, 0x1
+	
+    beqz a1, esParIndice
+    j esImparIndice
+
+    esParIndice:
+    li a0, 0x0
+    j return3
+  
+    esImparIndice:
+    li a0, 0x1
+    j return3
+    
+    return3:
+    ret
+	
+	
 # Devuelve 1 si a es par, 0 en caso contario
 # int32_t numero_par(int32_t a, int32_t index, int32_t length)
 
 call_numero_par: # a0 a, a1 index, a2 length
-	ret
 
+    andi a0, a0, 0x1
+	
+    beqz a0, esPar
+    j esImpar
+
+    esPar:
+    li a0, 0x1
+    j return4
+  
+    esImpar:
+    li a0, 0x0
+    j return4
+    
+    return4:
+    ret
 
 #=================================
 # NO TOCAR DESDE AQUI
@@ -55,9 +117,9 @@ test_fn_index:
     add a0, s1, zero
     add a1, s2, zero
     jalr ra, s0(0)          #call op
-    lw s7, s3           #get expected
+    lw s7, 0(s3)           #get expected
     add s8, a0, zero    #save result
-    beq s8, s7, no_mismatch
+    beq s8, s7, no_mismatch2
     la a0, msg_error_in #print error message
     li a7, ecall_print_string
     ecall
@@ -85,7 +147,7 @@ test_fn_index:
     li a0, ascii_new_line
     li a7, ecall_print_char
     ecall 
-no_mismatch:
+no_mismatch2:
     add ra, s6, zero #restore ra
     lw s9, 36(sp)
     lw s8, 32(sp)

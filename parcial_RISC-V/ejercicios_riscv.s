@@ -10,11 +10,11 @@ jal zero, main
 
 call_restar_limpiando_impares: # a0:accum, a1:a, a2:b
     li t0, 0x55555555
-    and a1, a1, t0 # 8 en hexa = 32 en binario
+    and a1, a1, t0 # me quedo con los bits en posiciones impares
     
-    sub a2, a2, a1
+    sub a2, a2, a1 # b = b - a 
     
-    sub a0, a0, a2
+    sub a0, a0, a2 # accum = accum - b = accum - b + a
     
     ret	
 	
